@@ -1,45 +1,75 @@
-// Importaciones de React y hooks necesarios
 import React, { useState, useEffect } from "react";
 
-// Componente Form que recibe props mediante destructuring
+// Formulario para agregar o editar un alumno
 function Form({ addOrUpdateItem, itemToEdit }) {
-  // Estado para controlar el valor del input
-  const [inputValue, setInputValue] = useState('');
+  // Guardamos lo que el usuario escribe
+  const [nombre, setNombre] = useState('');
+  const [asignatura, setAsignatura] = useState('');
+  const [promedio, setPromedio] = useState('');
 
-  // Efecto que sincroniza el input cuando hay un item para editar
+  // Si estamos editando, rellenamos los campos con los datos del alumno
   useEffect(() => {
     if (itemToEdit) {
-      // Si hay un item para editar, carga su valor en el input
-      setInputValue(itemToEdit.value);
+      setNombre(itemToEdit.nombre);
+      setAsignatura(itemToEdit.asignatura);
+      setPromedio(itemToEdit.promedio);
     } else {
-      // Si no hay item para editar, limpia el input
-      setInputValue('');
+      // Si no, los dejamos vacíos
+      setNombre('');
+      setAsignatura('');
+      setPromedio('');
     }
-  }, [itemToEdit]); // Se ejecuta cuando itemToEdit cambia
+  }, [itemToEdit]);
 
-  // Maneja el envío del formulario
+  // Esta función se llama cuando se envía el formulario
   const handleSubmit = (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto
+    e.preventDefault(); // Evita que la página se recargue
 
-    // Solo procede si el input no está vacío (eliminando espacios en blanco)
-    if (inputValue.trim()) {
-      addOrUpdateItem(inputValue); // Llama a la función padre
-      setInputValue(''); // Limpia el input después de enviar
+    // Solo sigue si los campos no están vacíos
+    if (nombre.trim() && asignatura.trim() && promedio.trim()) {
+      // Llamamos a la función del padre para agregar o actualizar
+      addOrUpdateItem({ nombre, asignatura, promedio });
+
+      // Limpiamos los campos
+      setNombre('');
+      setAsignatura('');
+      setPromedio('');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* Input controlado por React */}
-      <input 
-        type="text" 
-        value={inputValue} 
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      {/* Botón que cambia de texto según el modo (edición/agregar) */}
+    <form onSubmit={handleSubmit} class="inputs_block">
+      <div class="left">
+      <label>Nombre Alumno</label><br></br>
+      <input
+        type="text"
+        placeholder="Nombre del alumno"
+        value={nombre}
+        onChange={(e) => setNombre(e.target.value)}
+      /><br></br>
+
+      <label>Asignatura</label><br></br>
+      <input
+        type="text"
+        placeholder="Asignatura"
+        value={asignatura}
+        onChange={(e) => setAsignatura(e.target.value)}
+      /><br></br>
+
+      <label>Promedio</label><br></br>
+      <input
+        type="number"
+        placeholder="Promedio (1.0 - 7.0)"
+        step="0.1"
+        min="1"
+        max="7"
+        value={promedio}
+        onChange={(e) => setPromedio(e.target.value)}
+      /><br></br>
       <button type="submit">
-        {itemToEdit ? 'Actualizar' : 'Agregar'}
+        {itemToEdit ? "Actualizar" : "Agregar"}
       </button>
+      </div>
     </form>
   );
 }

@@ -1,23 +1,27 @@
-// Importación básica de React (necesaria para JSX)
 import React from "react";
 
-// Componente Item que recibe props mediante destructuring
+// Muestra los datos de un solo alumno
 function Item({ item, deleteItem, editItem }) {
-  // Retorna un elemento de lista (<li>) con:
   return (
     <li>
-      {/* Muestra el valor/texto del item */}
-      {item.value}
-      
-      {/* Botón para editar - ejecuta editItem pasando el item completo */}
-      <button onClick={() => editItem(item)}>
-        Editar
-      </button>
-      
-      {/* Botón para eliminar - ejecuta deleteItem pasando solo el ID */}
-      <button onClick={() => deleteItem(item.id)}>
-        Eliminar
-      </button>
+      {/* Mostramos los datos del alumno */}
+
+      <div class="inline">
+
+        <div class="alumno">
+          <strong>Alumno:</strong> {item.nombre} <br />
+          <strong>Asignatura:</strong> {item.asignatura} <br />
+          <strong>Promedio:</strong> {item.promedio} <br />
+          <strong>Estado:</strong> {item.estado}
+        </div>
+
+        {/* Botones para editar o eliminar */}
+        <div class="derecha">
+          <button onClick={() => editItem(item)}>Editar</button>
+          <button onClick={() => deleteItem(item.id)}>Eliminar</button>
+        </div>
+
+      </div>
     </li>
   );
 }

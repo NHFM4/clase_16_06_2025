@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  user-select: none;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -23,11 +27,17 @@ a:hover {
 }
 
 body {
+  flex-wrap: wrap; /* responsivo uwu */
+  text-align: center;
+
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background: linear-gradient(black, purple);
+
 }
 
 h1 {
@@ -36,6 +46,7 @@ h1 {
 }
 
 button {
+  text-align: center;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -65,4 +76,112 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Mis bloquecitos de formulario*/
+
+img {
+  max-width: 100px;
+  width: auto;
+
+  transition: ease 6s;
+}
+
+img:hover {
+  transform: scale(2);
+}
+
+.inputs_block {
+  display: flex;
+
+  text-align: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.41);
+  border: 2px solid #646cff6e;
+  border-radius: 10px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  transition: ease-in 300ms;
+  opacity: 90%;
+}
+
+.left input, button{
+
+  border-radius: 5px;
+
+  padding: 5px;
+  margin: 10px;
+}
+
+.left * {
+  max-width: 200px;
+  width: 100%;
+}
+
+.inputs_block:hover {
+  transform: scale(1.01);
+  opacity: 100%;
+
+  border-color: #646cff;
+}
+
+.left {
+  text-align: left;
+}
+
+/* UL y bloque de listas con alumnos si si xd no se que poner uwu */
+
+.list {
+
+  text-align: center;
+  justify-content: center;
+  list-style-type: none;
+
+}
+
+.list li {
+  border-top: #1a1a1a solid 2px;
+  border-top-style: outset;
+
+}
+
+.inline {
+  display: inline-flex;
+  padding: 30px;
+}
+
+.inline button {
+  max-height: 30px;
+  height: auto;
+}
+
+.status {
+
+  padding: 2px;
+  border-radius: 5px;
+  border: rgb(101, 78, 78) solid 2px;
+  background-color: #676767;
+
+}
+
+.alumno {
+  text-align: left;
+}
+
+.derecha {
+
+  text-align: right;
+}
+
+.center {
+  margin: 0;
+  text-align: center;
+  justify-content: center;
+}
+
+#nada_XD {
+  font-style:oblique;
 }
