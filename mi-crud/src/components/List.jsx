@@ -1,15 +1,15 @@
 import React from "react";
 import Item from "./Item";
 
+// Lista completa de alumnos
 function List({ items, deleteItem, editItem }) {
   let render_;
   let xd;
 
   if (items.length === 0) {
     render_ = <li>Aún no tenemos nada por aquí UwU</li>;
-
   } else {
-    xd = <li>Administracion de Alumnos</li>;
+    xd = <li>Administración de Alumnos</li>;
     render_ = items.map((item) => (
       <Item
         key={item.id}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import moon from './assets/moon.gif';
 import Form from "./components/Form";
 import List from "./components/List";
@@ -6,6 +6,7 @@ import "./App.css";
 
 // Componente principal de la app
 function App() {
+
   // Guarda los alumnos (cada uno tiene nombre, asignatura, promedio y estado)
   const [items, setItems] = useState([]);
 
@@ -71,8 +72,8 @@ function App() {
 
   // Lo que se muestra en pantalla
   return (
-    <div className="App" class="center">
-      <img src={moon}></img>
+    <div className="App center">
+      <img src={moon} alt="moon" />
       <h1>Evaluación de Alumnos</h1>
       <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
       <List items={items} deleteItem={deleteItem} editItem={editItem} />

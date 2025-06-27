@@ -5,10 +5,9 @@ function Item({ item, deleteItem, editItem }) {
   return (
     <li>
       {/* Mostramos los datos del alumno */}
+      <div className="inline">
 
-      <div class="inline">
-
-        <div class="alumno">
+        <div className="alumno">
           <strong>Alumno:</strong> {item.nombre} <br />
           <strong>Asignatura:</strong> {item.asignatura} <br />
           <strong>Promedio:</strong> {item.promedio} <br />
@@ -16,7 +15,7 @@ function Item({ item, deleteItem, editItem }) {
         </div>
 
         {/* Botones para editar o eliminar */}
-        <div class="derecha">
+        <div className="derecha">
           <button onClick={() => editItem(item)}>Editar</button>
           <button onClick={() => deleteItem(item.id)}>Eliminar</button>
         </div>
