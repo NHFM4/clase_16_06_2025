@@ -7,9 +7,9 @@ function List({ items, deleteItem, editItem }) {
   let xd;
 
   if (items.length === 0) {
-    render_ = <li>Aún no tenemos nada por aquí UwU</li>;
+    render_ = <li class="about">Aún no tenemos nada por aquí UwU</li>;
   } else {
-    xd = <li>Administración de Alumnos</li>;
+    xd = <li class="about">Administración de Alumnos</li>;
     render_ = items.map((item) => (
       <Item
         key={item.id}

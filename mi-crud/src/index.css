@@ -13,8 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+*{
   user-select: none;
+}
+
+label, h1, .about {
+  color: #f9f9f9;
 }
 
 a {
@@ -164,11 +168,15 @@ img:hover {
   border-radius: 5px;
   border: rgb(101, 78, 78) solid 2px;
   background-color: #676767;
+  color: #f9f9f9;
+
 
 }
 
 .alumno {
   text-align: left;
+  color: #f9f9f9;
+
 }
 
 .derecha {
